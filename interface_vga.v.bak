@@ -1,0 +1,71 @@
+module interface_vga (
+   //////////// CLOCKS //////////
+   input               CLK,	
+   //////////// SWs //////////
+   input      [2:0]    SW,   
+   //////////// VGA SIGNALS //////////
+   output reg [7:0]    VGA_R,
+   output reg [7:0]    VGA_G,
+   output reg [7:0]    VGA_B,
+   output reg          VGA_HS,
+   output reg          VGA_VS,
+	output wire 		  n_sync, 
+	output wire         n_blank
+);
+
+//============================================================================
+//  declarações reg e wire
+//============================================================================
+wire [31:0]    col, row;
+wire [7:0]     red, green, blue;
+wire           h_sync, v_sync;
+wire           disp_ena;
+wire           vga_clk;
+
+//============================================================================
+// bloco lógico combinacional que determina as saídas de cores RGB fornecidas
+//============================================================================
+comb_ckt_generator comb_ckt (
+   .col   (col[9:0]),   // only bottom 10 bits needed to count to 640
+   .row   (row[8:0]),   // only bottom 9 bits needed to count to 480
+   .red   (red),        // 4-bit color output
+   .green (green),      // 4-bit color output
+   .blue  (blue),       // 4-bit color output
+   .SW    (SW) 
+   );
+
+// Registre os sinais de saída VGA para fins de temporização
+always @(posedge vga_clk) begin
+   if (disp_ena == 1'b1) begin
+      VGA_R <= red;
+      VGA_B <= blue;
+      VGA_G <= green;
+   end else begin
+      VGA_R <= 4'd0;
+      VGA_B <= 4'd0;
+      VGA_G <= 4'd0;
+   end
+   VGA_HS <= h_sync;
+   VGA_VS <= v_sync;
+end
+
+// Instanciar PLL para converter os 50 MHz
+pll vgapll_inst (
+    .inclk0    (CLK),
+    .c0        (vga_clk)
+    );
+
+// Controlador VGA instantâneo
+vga_controller control (
+   .pixel_clk  (vga_clk),
+   .reset_n    (1'b1),
+   .h_sync     (h_sync),
+   .v_sync     (v_sync),
+   .disp_ena   (disp_ena),
+   .column     (col),
+   .row        (row),
+	.n_blank		(n_blank),
+	.n_sync		(n_sync)
+   );
+
+endmodule

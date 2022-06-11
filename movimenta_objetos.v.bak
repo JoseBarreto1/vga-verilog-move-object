@@ -1,0 +1,32 @@
+module movimenta_objetos (input wire [9:0] col, input wire [8:0] row, input wire disp_ena, input wire [2:0] SW, output reg [7:0] red, green, blue);
+	
+	always @(disp_ena) begin
+		if (disp_ena == 1'b1) begin
+			if (row < 128) begin
+				red <= SW[0] ? 8'hff : 8'h0;
+				green <= SW[1] ? 8'hff : 8'h0;
+				blue <= SW[2] ? 8'hff : 8'h0;
+			end
+			else if (row >= 128 && row < 256) begin
+				red <= SW[0] ? 8'hff : 8'h0;
+				green <= !SW[1] ? 8'hff : 8'h0;
+				blue <= SW[2] ? 8'hff : 8'h0;
+			end
+			else if (row >= 256 && row < 384) begin
+				red <= !SW[0] ? 8'hff : 8'h0;
+				green <= SW[1] ? 8'hff : 8'h0;
+				blue <= !SW[2] ? 8'hff : 8'h0;
+			end
+			else begin
+				red <= !SW[0] ? 8'hff : 8'h0;
+				green <= !SW[1] ? 8'hff : 8'h0;
+				blue <= !SW[2] ? 8'hff : 8'h0;			
+			end
+		end else begin
+			red <= 8'd0;
+			green <= 8'd0;
+			blue <= 8'd0;
+		end
+	end
+
+endmodule
