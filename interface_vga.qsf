@@ -189,4 +189,11 @@ set_location_assignment PIN_M21 -to KEY[1]
 set_location_assignment PIN_M23 -to KEY[0]
 set_global_assignment -name VERILOG_FILE velocidade_objeto.v
 set_global_assignment -name VERILOG_FILE colisao/colide_objeto.v
+set_global_assignment -name VERILOG_FILE colisao/colide_max_x.v
+set_global_assignment -name VERILOG_FILE "obstaculos/desenha_obstaculo .v"
+set_global_assignment -name VERILOG_FILE colisao/colide_min_x.v
+set_global_assignment -name VERILOG_FILE colisao/colide_max_y.v
+set_global_assignment -name VERILOG_FILE colisao/colide_min_y.v
+set_global_assignment -name VERILOG_FILE obstaculos/teste/linha_vertical.v
+set_global_assignment -name VERILOG_FILE obstaculos/teste/linha_horizontal.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

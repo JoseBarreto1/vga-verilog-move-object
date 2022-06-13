@@ -1,5 +1,5 @@
 Analysis & Synthesis report for interface_vga
-Sat Jun 11 09:41:30 2022
+Mon Jun 13 15:31:14 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -16,16 +16,20 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   8. Analysis & Synthesis IP Cores Summary
   9. General Register Statistics
  10. Inverted Register Statistics
- 11. Parameter Settings for User Entity Instance: pll:vgapll_inst|altpll:altpll_component
- 12. Parameter Settings for User Entity Instance: controlador_vga:controle
- 13. altpll Parameter Settings by Entity Instance
- 14. Port Connectivity Checks: "movimenta_objetos:movimenta|colide_objeto:limites"
- 15. Port Connectivity Checks: "movimenta_objetos:movimenta|desenha_objeto:quadrado"
- 16. Port Connectivity Checks: "movimenta_objetos:movimenta|velocidade_objeto:speed"
- 17. Port Connectivity Checks: "controlador_vga:controle"
- 18. Post-Synthesis Netlist Statistics for Top Partition
- 19. Elapsed Time Per Partition
- 20. Analysis & Synthesis Messages
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: pll:vgapll_inst|altpll:altpll_component
+ 13. Parameter Settings for User Entity Instance: controlador_vga:controle
+ 14. altpll Parameter Settings by Entity Instance
+ 15. Port Connectivity Checks: "movimenta_objetos:movimenta|colide_objeto:limites|colide_min_y:minY"
+ 16. Port Connectivity Checks: "movimenta_objetos:movimenta|colide_objeto:limites|colide_max_y:maxY"
+ 17. Port Connectivity Checks: "movimenta_objetos:movimenta|colide_objeto:limites|colide_min_x:minX"
+ 18. Port Connectivity Checks: "movimenta_objetos:movimenta|colide_objeto:limites"
+ 19. Port Connectivity Checks: "movimenta_objetos:movimenta|desenha_objeto:quadrado"
+ 20. Port Connectivity Checks: "movimenta_objetos:movimenta|velocidade_objeto:speed"
+ 21. Port Connectivity Checks: "controlador_vga:controle"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
 
 
 
@@ -52,15 +56,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jun 11 09:41:30 2022       ;
+; Analysis & Synthesis Status        ; Successful - Mon Jun 13 15:31:14 2022       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; interface_vga                               ;
 ; Top-level Entity Name              ; interface_vga                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 194                                         ;
-;     Total combinational functions  ; 175                                         ;
-;     Dedicated logic registers      ; 95                                          ;
-; Total registers                    ; 95                                          ;
+; Total logic elements               ; 325                                         ;
+;     Total combinational functions  ; 306                                         ;
+;     Dedicated logic registers      ; 125                                         ;
+; Total registers                    ; 125                                         ;
 ; Total pins                         ; 37                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -185,6 +189,11 @@ https://fpgasoftware.intel.com/eula.
 ; desenha_objeto.v                 ; yes             ; User Verilog HDL File        ; /home/ti/QUARTUS/VGA2.1/desenha_objeto.v                                  ;         ;
 ; velocidade_objeto.v              ; yes             ; User Verilog HDL File        ; /home/ti/QUARTUS/VGA2.1/velocidade_objeto.v                               ;         ;
 ; colisao/colide_objeto.v          ; yes             ; User Verilog HDL File        ; /home/ti/QUARTUS/VGA2.1/colisao/colide_objeto.v                           ;         ;
+; colisao/colide_max_x.v           ; yes             ; User Verilog HDL File        ; /home/ti/QUARTUS/VGA2.1/colisao/colide_max_x.v                            ;         ;
+; obstaculos/desenha_obstaculo .v  ; yes             ; User Verilog HDL File        ; /home/ti/QUARTUS/VGA2.1/obstaculos/desenha_obstaculo .v                   ;         ;
+; colisao/colide_min_x.v           ; yes             ; User Verilog HDL File        ; /home/ti/QUARTUS/VGA2.1/colisao/colide_min_x.v                            ;         ;
+; colisao/colide_max_y.v           ; yes             ; User Verilog HDL File        ; /home/ti/QUARTUS/VGA2.1/colisao/colide_max_y.v                            ;         ;
+; colisao/colide_min_y.v           ; yes             ; User Verilog HDL File        ; /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v                            ;         ;
 ; altpll.tdf                       ; yes             ; Megafunction                 ; /home/ti/intelFPGA/20.1/quartus/libraries/megafunctions/altpll.tdf        ;         ;
 ; aglobal201.inc                   ; yes             ; Megafunction                 ; /home/ti/intelFPGA/20.1/quartus/libraries/megafunctions/aglobal201.inc    ;         ;
 ; stratix_pll.inc                  ; yes             ; Megafunction                 ; /home/ti/intelFPGA/20.1/quartus/libraries/megafunctions/stratix_pll.inc   ;         ;
@@ -199,20 +208,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+------------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                              ;
 +---------------------------------------------+------------------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 194                                                                                ;
+; Estimated Total logic elements              ; 325                                                                                ;
 ;                                             ;                                                                                    ;
-; Total combinational functions               ; 175                                                                                ;
+; Total combinational functions               ; 306                                                                                ;
 ; Logic element usage by number of LUT inputs ;                                                                                    ;
-;     -- 4 input functions                    ; 27                                                                                 ;
-;     -- 3 input functions                    ; 62                                                                                 ;
-;     -- <=2 input functions                  ; 86                                                                                 ;
+;     -- 4 input functions                    ; 115                                                                                ;
+;     -- 3 input functions                    ; 82                                                                                 ;
+;     -- <=2 input functions                  ; 109                                                                                ;
 ;                                             ;                                                                                    ;
 ; Logic elements by mode                      ;                                                                                    ;
-;     -- normal mode                          ; 69                                                                                 ;
-;     -- arithmetic mode                      ; 106                                                                                ;
+;     -- normal mode                          ; 192                                                                                ;
+;     -- arithmetic mode                      ; 114                                                                                ;
 ;                                             ;                                                                                    ;
-; Total registers                             ; 95                                                                                 ;
-;     -- Dedicated logic registers            ; 95                                                                                 ;
+; Total registers                             ; 125                                                                                ;
+;     -- Dedicated logic registers            ; 125                                                                                ;
 ;     -- I/O registers                        ; 0                                                                                  ;
 ;                                             ;                                                                                    ;
 ; I/O pins                                    ; 37                                                                                 ;
@@ -223,27 +232,29 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1                                                                                  ;
 ;                                             ;                                                                                    ;
 ; Maximum fan-out node                        ; pll:vgapll_inst|altpll:altpll_component|pll_altpll:auto_generated|wire_pll1_clk[0] ;
-; Maximum fan-out                             ; 80                                                                                 ;
-; Total fan-out                               ; 767                                                                                ;
-; Average fan-out                             ; 2.22                                                                               ;
+; Maximum fan-out                             ; 110                                                                                ;
+; Total fan-out                               ; 1291                                                                               ;
+; Average fan-out                             ; 2.55                                                                               ;
 +---------------------------------------------+------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                   ;
-+--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------+-------------------+--------------+
-; Compilation Hierarchy Node           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                              ; Entity Name       ; Library Name ;
-+--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------+-------------------+--------------+
-; |interface_vga                       ; 175 (0)             ; 95 (0)                    ; 0           ; 0            ; 0       ; 0         ; 37   ; 0            ; |interface_vga                                                                   ; interface_vga     ; work         ;
-;    |controlador_vga:controle|        ; 35 (35)             ; 42 (42)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|controlador_vga:controle                                          ; controlador_vga   ; work         ;
-;    |movimenta_objetos:movimenta|     ; 140 (31)            ; 53 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|movimenta_objetos:movimenta                                       ; movimenta_objetos ; work         ;
-;       |colide_objeto:limites|        ; 10 (10)             ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|movimenta_objetos:movimenta|colide_objeto:limites                 ; colide_objeto     ; work         ;
-;       |desenha_objeto:quadrado|      ; 53 (53)             ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|movimenta_objetos:movimenta|desenha_objeto:quadrado               ; desenha_objeto    ; work         ;
-;       |velocidade_objeto:speed|      ; 46 (46)             ; 30 (30)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|movimenta_objetos:movimenta|velocidade_objeto:speed               ; velocidade_objeto ; work         ;
-;    |pll:vgapll_inst|                 ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|pll:vgapll_inst                                                   ; pll               ; work         ;
-;       |altpll:altpll_component|      ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|pll:vgapll_inst|altpll:altpll_component                           ; altpll            ; work         ;
-;          |pll_altpll:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|pll:vgapll_inst|altpll:altpll_component|pll_altpll:auto_generated ; pll_altpll        ; work         ;
-+--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------+-------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                     ;
++--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                ; Entity Name       ; Library Name ;
++--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+-------------------+--------------+
+; |interface_vga                       ; 306 (0)             ; 125 (0)                   ; 0           ; 0            ; 0       ; 0         ; 37   ; 0            ; |interface_vga                                                                     ; interface_vga     ; work         ;
+;    |controlador_vga:controle|        ; 35 (35)             ; 42 (42)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|controlador_vga:controle                                            ; controlador_vga   ; work         ;
+;    |movimenta_objetos:movimenta|     ; 271 (32)            ; 83 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|movimenta_objetos:movimenta                                         ; movimenta_objetos ; work         ;
+;       |colide_objeto:limites|        ; 73 (12)             ; 14 (4)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|movimenta_objetos:movimenta|colide_objeto:limites                   ; colide_objeto     ; work         ;
+;          |colide_max_x:maxX|         ; 61 (61)             ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|movimenta_objetos:movimenta|colide_objeto:limites|colide_max_x:maxX ; colide_max_x      ; work         ;
+;       |desenha_objeto:quadrado|      ; 53 (53)             ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|movimenta_objetos:movimenta|desenha_objeto:quadrado                 ; desenha_objeto    ; work         ;
+;       |desenha_obstaculo:obstaculos| ; 67 (67)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|movimenta_objetos:movimenta|desenha_obstaculo:obstaculos            ; desenha_obstaculo ; work         ;
+;       |velocidade_objeto:speed|      ; 46 (46)             ; 30 (30)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|movimenta_objetos:movimenta|velocidade_objeto:speed                 ; velocidade_objeto ; work         ;
+;    |pll:vgapll_inst|                 ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|pll:vgapll_inst                                                     ; pll               ; work         ;
+;       |altpll:altpll_component|      ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|pll:vgapll_inst|altpll:altpll_component                             ; altpll            ; work         ;
+;          |pll_altpll:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |interface_vga|pll:vgapll_inst|altpll:altpll_component|pll_altpll:auto_generated   ; pll_altpll        ; work         ;
++--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -261,7 +272,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 95    ;
+; Total registers                              ; 125   ;
 ; Number of registers using Synchronous Clear  ; 20    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -276,16 +287,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; movimenta_objetos:movimenta|countY[7]  ; 5       ;
-; movimenta_objetos:movimenta|countY[4]  ; 5       ;
-; movimenta_objetos:movimenta|countY[2]  ; 4       ;
-; movimenta_objetos:movimenta|countY[1]  ; 5       ;
-; movimenta_objetos:movimenta|countX[7]  ; 5       ;
-; movimenta_objetos:movimenta|countX[4]  ; 4       ;
-; movimenta_objetos:movimenta|countX[2]  ; 4       ;
-; movimenta_objetos:movimenta|countX[1]  ; 5       ;
+; movimenta_objetos:movimenta|countY[7]  ; 10      ;
+; movimenta_objetos:movimenta|countY[4]  ; 11      ;
+; movimenta_objetos:movimenta|countY[2]  ; 8       ;
+; movimenta_objetos:movimenta|countY[1]  ; 10      ;
+; movimenta_objetos:movimenta|countX[7]  ; 8       ;
+; movimenta_objetos:movimenta|countX[4]  ; 7       ;
+; movimenta_objetos:movimenta|countX[2]  ; 6       ;
+; movimenta_objetos:movimenta|countX[1]  ; 6       ;
 ; Total number of inverted registers = 8 ;         ;
 +----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |interface_vga|movimenta_objetos:movimenta|blue[0] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------+
@@ -698,6 +718,33 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+-----------------------------------------+
 
 
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "movimenta_objetos:movimenta|colide_objeto:limites|colide_min_y:minY"                         ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; colisao_min_y ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "movimenta_objetos:movimenta|colide_objeto:limites|colide_max_y:maxY"                         ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; colisao_max_y ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "movimenta_objetos:movimenta|colide_objeto:limites|colide_min_x:minX"                         ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; colisao_min_x ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "movimenta_objetos:movimenta|colide_objeto:limites" ;
 +---------------+-------+----------+--------------------------------------------+
@@ -756,25 +803,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 37                          ;
-; cycloneiii_ff         ; 95                          ;
+; cycloneiii_ff         ; 125                         ;
 ;     ENA               ; 36                          ;
 ;     ENA SCLR          ; 10                          ;
 ;     SCLR              ; 10                          ;
-;     plain             ; 39                          ;
-; cycloneiii_lcell_comb ; 178                         ;
-;     arith             ; 106                         ;
-;         2 data inputs ; 61                          ;
+;     plain             ; 69                          ;
+; cycloneiii_lcell_comb ; 309                         ;
+;     arith             ; 114                         ;
+;         2 data inputs ; 69                          ;
 ;         3 data inputs ; 45                          ;
-;     normal            ; 72                          ;
-;         0 data inputs ; 2                           ;
+;     normal            ; 195                         ;
+;         0 data inputs ; 3                           ;
 ;         1 data inputs ; 14                          ;
-;         2 data inputs ; 12                          ;
-;         3 data inputs ; 17                          ;
-;         4 data inputs ; 27                          ;
+;         2 data inputs ; 26                          ;
+;         3 data inputs ; 37                          ;
+;         4 data inputs ; 115                         ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.80                        ;
-; Average LUT depth     ; 2.75                        ;
+; Max LUT depth         ; 5.40                        ;
+; Average LUT depth     ; 3.23                        ;
 +-----------------------+-----------------------------+
 
 
@@ -783,7 +830,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -793,13 +840,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat Jun 11 09:41:22 2022
+    Info: Processing started: Mon Jun 13 15:31:05 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off interface_vga -c interface_vga
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file pll.v
     Info (12023): Found entity 1: pll File: /home/ti/QUARTUS/VGA2.1/pll.v Line: 39
-Warning (10275): Verilog HDL Module Instantiation warning at interface_vga.v(49): ignored dangling comma in List of Port Connections File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 49
+Warning (10275): Verilog HDL Module Instantiation warning at interface_vga.v(48): ignored dangling comma in List of Port Connections File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 48
 Info (12021): Found 1 design units, including 1 entities, in source file interface_vga.v
     Info (12023): Found entity 1: interface_vga File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file controlador_vga.v
@@ -812,12 +859,32 @@ Info (12021): Found 1 design units, including 1 entities, in source file velocid
     Info (12023): Found entity 1: velocidade_objeto File: /home/ti/QUARTUS/VGA2.1/velocidade_objeto.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file colisao/colide_objeto.v
     Info (12023): Found entity 1: colide_objeto File: /home/ti/QUARTUS/VGA2.1/colisao/colide_objeto.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at movimenta_objetos.v(20): created implicit net for "vClock" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 20
-Warning (10236): Verilog HDL Implicit Net warning at movimenta_objetos.v(31): created implicit net for "desenho" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 31
-Warning (10236): Verilog HDL Implicit Net warning at movimenta_objetos.v(40): created implicit net for "max_x" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 40
-Warning (10236): Verilog HDL Implicit Net warning at movimenta_objetos.v(41): created implicit net for "min_x" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 41
-Warning (10236): Verilog HDL Implicit Net warning at movimenta_objetos.v(42): created implicit net for "max_y" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 42
-Warning (10236): Verilog HDL Implicit Net warning at movimenta_objetos.v(43): created implicit net for "min_y" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file colisao/colide_max_x.v
+    Info (12023): Found entity 1: colide_max_x File: /home/ti/QUARTUS/VGA2.1/colisao/colide_max_x.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file obstaculos/desenha_obstaculo .v
+    Info (12023): Found entity 1: desenha_obstaculo File: /home/ti/QUARTUS/VGA2.1/obstaculos/desenha_obstaculo .v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file colisao/colide_min_x.v
+    Info (12023): Found entity 1: colide_min_x File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_x.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file colisao/colide_max_y.v
+    Info (12023): Found entity 1: colide_max_y File: /home/ti/QUARTUS/VGA2.1/colisao/colide_max_y.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file colisao/colide_min_y.v
+    Info (12023): Found entity 1: colide_min_y File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file obstaculos/teste/linha_vertical.v
+    Info (12023): Found entity 1: linha_vertical File: /home/ti/QUARTUS/VGA2.1/obstaculos/teste/linha_vertical.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file obstaculos/teste/linha_horizontal.v
+    Info (12023): Found entity 1: linha_horizontal File: /home/ti/QUARTUS/VGA2.1/obstaculos/teste/linha_horizontal.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at movimenta_objetos.v(21): created implicit net for "vClock" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 21
+Warning (10236): Verilog HDL Implicit Net warning at movimenta_objetos.v(29): created implicit net for "obstaculo" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 29
+Warning (10236): Verilog HDL Implicit Net warning at movimenta_objetos.v(40): created implicit net for "desenho" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 40
+Warning (10236): Verilog HDL Implicit Net warning at movimenta_objetos.v(49): created implicit net for "max_x" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 49
+Warning (10236): Verilog HDL Implicit Net warning at movimenta_objetos.v(50): created implicit net for "min_x" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 50
+Warning (10236): Verilog HDL Implicit Net warning at movimenta_objetos.v(51): created implicit net for "max_y" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 51
+Warning (10236): Verilog HDL Implicit Net warning at movimenta_objetos.v(52): created implicit net for "min_y" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 52
+Warning (10236): Verilog HDL Implicit Net warning at colide_objeto.v(23): created implicit net for "max_x" File: /home/ti/QUARTUS/VGA2.1/colisao/colide_objeto.v Line: 23
+Warning (10236): Verilog HDL Implicit Net warning at colide_objeto.v(32): created implicit net for "min_x" File: /home/ti/QUARTUS/VGA2.1/colisao/colide_objeto.v Line: 32
+Warning (10236): Verilog HDL Implicit Net warning at colide_objeto.v(41): created implicit net for "max_y" File: /home/ti/QUARTUS/VGA2.1/colisao/colide_objeto.v Line: 41
+Warning (10236): Verilog HDL Implicit Net warning at colide_objeto.v(50): created implicit net for "min_y" File: /home/ti/QUARTUS/VGA2.1/colisao/colide_objeto.v Line: 50
+Warning (10236): Verilog HDL Implicit Net warning at colide_max_y.v(66): created implicit net for "colide_max_y" File: /home/ti/QUARTUS/VGA2.1/colisao/colide_max_y.v Line: 66
 Info (12127): Elaborating entity "interface_vga" for the top level hierarchy
 Info (12128): Elaborating entity "pll" for hierarchy "pll:vgapll_inst" File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 22
 Info (12128): Elaborating entity "altpll" for hierarchy "pll:vgapll_inst|altpll:altpll_component" File: /home/ti/QUARTUS/VGA2.1/pll.v Line: 90
@@ -883,26 +950,53 @@ Info (12128): Elaborating entity "pll_altpll" for hierarchy "pll:vgapll_inst|alt
 Info (12128): Elaborating entity "controlador_vga" for hierarchy "controlador_vga:controle" File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 35
 Warning (10230): Verilog HDL assignment warning at controlador_vga.v(48): truncated value with size 32 to match size of target (10) File: /home/ti/QUARTUS/VGA2.1/controlador_vga.v Line: 48
 Warning (10230): Verilog HDL assignment warning at controlador_vga.v(52): truncated value with size 32 to match size of target (10) File: /home/ti/QUARTUS/VGA2.1/controlador_vga.v Line: 52
-Info (12128): Elaborating entity "movimenta_objetos" for hierarchy "movimenta_objetos:movimenta" File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 49
-Warning (10230): Verilog HDL assignment warning at movimenta_objetos.v(49): truncated value with size 32 to match size of target (10) File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 49
-Warning (10230): Verilog HDL assignment warning at movimenta_objetos.v(50): truncated value with size 32 to match size of target (10) File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 50
-Warning (10230): Verilog HDL assignment warning at movimenta_objetos.v(51): truncated value with size 32 to match size of target (9) File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 51
-Warning (10230): Verilog HDL assignment warning at movimenta_objetos.v(52): truncated value with size 32 to match size of target (9) File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 52
-Warning (10235): Verilog HDL Always Construct warning at movimenta_objetos.v(58): variable "desenho" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 58
-Info (12128): Elaborating entity "velocidade_objeto" for hierarchy "movimenta_objetos:movimenta|velocidade_objeto:speed" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 21
+Info (12128): Elaborating entity "movimenta_objetos" for hierarchy "movimenta_objetos:movimenta" File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 48
+Warning (10230): Verilog HDL assignment warning at movimenta_objetos.v(58): truncated value with size 32 to match size of target (10) File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 58
+Warning (10230): Verilog HDL assignment warning at movimenta_objetos.v(59): truncated value with size 32 to match size of target (10) File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 59
+Warning (10230): Verilog HDL assignment warning at movimenta_objetos.v(60): truncated value with size 32 to match size of target (9) File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 60
+Warning (10230): Verilog HDL assignment warning at movimenta_objetos.v(61): truncated value with size 32 to match size of target (9) File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 61
+Warning (10235): Verilog HDL Always Construct warning at movimenta_objetos.v(67): variable "desenho" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 67
+Warning (10235): Verilog HDL Always Construct warning at movimenta_objetos.v(72): variable "obstaculo" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 72
+Info (12128): Elaborating entity "velocidade_objeto" for hierarchy "movimenta_objetos:movimenta|velocidade_objeto:speed" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 22
 Warning (10230): Verilog HDL assignment warning at velocidade_objeto.v(15): truncated value with size 32 to match size of target (29) File: /home/ti/QUARTUS/VGA2.1/velocidade_objeto.v Line: 15
-Info (12128): Elaborating entity "desenha_objeto" for hierarchy "movimenta_objetos:movimenta|desenha_objeto:quadrado" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 32
-Info (12128): Elaborating entity "colide_objeto" for hierarchy "movimenta_objetos:movimenta|colide_objeto:limites" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 44
+Info (12128): Elaborating entity "desenha_obstaculo" for hierarchy "movimenta_objetos:movimenta|desenha_obstaculo:obstaculos" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 30
+Info (12128): Elaborating entity "desenha_objeto" for hierarchy "movimenta_objetos:movimenta|desenha_objeto:quadrado" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 41
+Info (12128): Elaborating entity "colide_objeto" for hierarchy "movimenta_objetos:movimenta|colide_objeto:limites" File: /home/ti/QUARTUS/VGA2.1/movimenta_objetos.v Line: 53
+Info (12128): Elaborating entity "colide_max_x" for hierarchy "movimenta_objetos:movimenta|colide_objeto:limites|colide_max_x:maxX" File: /home/ti/QUARTUS/VGA2.1/colisao/colide_objeto.v Line: 24
+Info (12128): Elaborating entity "colide_min_x" for hierarchy "movimenta_objetos:movimenta|colide_objeto:limites|colide_min_x:minX" File: /home/ti/QUARTUS/VGA2.1/colisao/colide_objeto.v Line: 33
+Info (12128): Elaborating entity "colide_max_y" for hierarchy "movimenta_objetos:movimenta|colide_objeto:limites|colide_max_y:maxY" File: /home/ti/QUARTUS/VGA2.1/colisao/colide_objeto.v Line: 42
+Warning (10036): Verilog HDL or VHDL warning at colide_max_y.v(66): object "colide_max_y" assigned a value but never read File: /home/ti/QUARTUS/VGA2.1/colisao/colide_max_y.v Line: 66
+Warning (10858): Verilog HDL warning at colide_max_y.v(10): object colisao_02 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_max_y.v Line: 10
+Warning (10858): Verilog HDL warning at colide_max_y.v(10): object colisao_03 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_max_y.v Line: 10
+Warning (10858): Verilog HDL warning at colide_max_y.v(10): object colisao_04 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_max_y.v Line: 10
+Warning (10858): Verilog HDL warning at colide_max_y.v(10): object colisao_05 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_max_y.v Line: 10
+Warning (10858): Verilog HDL warning at colide_max_y.v(10): object colisao_06 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_max_y.v Line: 10
+Warning (10858): Verilog HDL warning at colide_max_y.v(10): object colisao_07 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_max_y.v Line: 10
+Warning (10858): Verilog HDL warning at colide_max_y.v(10): object colisao_08 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_max_y.v Line: 10
+Warning (10858): Verilog HDL warning at colide_max_y.v(10): object colisao_09 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_max_y.v Line: 10
+Warning (10858): Verilog HDL warning at colide_max_y.v(10): object colisao_10 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_max_y.v Line: 10
+Warning (10034): Output port "colisao_max_y" at colide_max_y.v(7) has no driver File: /home/ti/QUARTUS/VGA2.1/colisao/colide_max_y.v Line: 7
+Info (12128): Elaborating entity "colide_min_y" for hierarchy "movimenta_objetos:movimenta|colide_objeto:limites|colide_min_y:minY" File: /home/ti/QUARTUS/VGA2.1/colisao/colide_objeto.v Line: 51
+Warning (10858): Verilog HDL warning at colide_min_y.v(10): object colisao_02 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
+Warning (10858): Verilog HDL warning at colide_min_y.v(10): object colisao_03 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
+Warning (10858): Verilog HDL warning at colide_min_y.v(10): object colisao_04 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
+Warning (10858): Verilog HDL warning at colide_min_y.v(10): object colisao_05 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
+Warning (10858): Verilog HDL warning at colide_min_y.v(10): object colisao_06 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
+Warning (10858): Verilog HDL warning at colide_min_y.v(10): object colisao_07 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
+Warning (10858): Verilog HDL warning at colide_min_y.v(10): object colisao_08 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
+Warning (10858): Verilog HDL warning at colide_min_y.v(10): object colisao_09 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
+Warning (10858): Verilog HDL warning at colide_min_y.v(10): object colisao_10 used but never assigned File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
+Warning (10030): Net "colisao_02" at colide_min_y.v(10) has no driver or initial value, using a default initial value '0' File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
+Warning (10030): Net "colisao_03" at colide_min_y.v(10) has no driver or initial value, using a default initial value '0' File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
+Warning (10030): Net "colisao_04" at colide_min_y.v(10) has no driver or initial value, using a default initial value '0' File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
+Warning (10030): Net "colisao_05" at colide_min_y.v(10) has no driver or initial value, using a default initial value '0' File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
+Warning (10030): Net "colisao_06" at colide_min_y.v(10) has no driver or initial value, using a default initial value '0' File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
+Warning (10030): Net "colisao_07" at colide_min_y.v(10) has no driver or initial value, using a default initial value '0' File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
+Warning (10030): Net "colisao_08" at colide_min_y.v(10) has no driver or initial value, using a default initial value '0' File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
+Warning (10030): Net "colisao_09" at colide_min_y.v(10) has no driver or initial value, using a default initial value '0' File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
+Warning (10030): Net "colisao_10" at colide_min_y.v(10) has no driver or initial value, using a default initial value '0' File: /home/ti/QUARTUS/VGA2.1/colisao/colide_min_y.v Line: 10
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "green[0]" is stuck at GND File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 5
-    Warning (13410): Pin "green[1]" is stuck at GND File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 5
-    Warning (13410): Pin "green[2]" is stuck at GND File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 5
-    Warning (13410): Pin "green[3]" is stuck at GND File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 5
-    Warning (13410): Pin "green[4]" is stuck at GND File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 5
-    Warning (13410): Pin "green[5]" is stuck at GND File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 5
-    Warning (13410): Pin "green[6]" is stuck at GND File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 5
-    Warning (13410): Pin "green[7]" is stuck at GND File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 5
     Warning (13410): Pin "n_sync" is stuck at GND File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 7
     Warning (13410): Pin "n_blank" is stuck at VCC File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 7
 Info (286030): Timing-Driven Synthesis is running
@@ -912,15 +1006,15 @@ Warning (21074): Design contains 3 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[0]" File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 3
     Warning (15610): No output dependent on input pin "SW[1]" File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 3
     Warning (15610): No output dependent on input pin "SW[2]" File: /home/ti/QUARTUS/VGA2.1/interface_vga.v Line: 3
-Info (21057): Implemented 232 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 363 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 8 input pins
     Info (21059): Implemented 29 output pins
-    Info (21061): Implemented 194 logic cells
+    Info (21061): Implemented 325 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 32 warnings
-    Info: Peak virtual memory: 457 megabytes
-    Info: Processing ended: Sat Jun 11 09:41:30 2022
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:20
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 60 warnings
+    Info: Peak virtual memory: 459 megabytes
+    Info: Processing ended: Mon Jun 13 15:31:14 2022
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:22
 
 

@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Sat Jun 11 09:41:30 2022
+Analysis & Synthesis Status : Successful - Mon Jun 13 15:31:14 2022
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : interface_vga
 Top-level Entity Name : interface_vga
 Family : Cyclone IV E
-Total logic elements : 194
-    Total combinational functions : 175
-    Dedicated logic registers : 95
-Total registers : 95
+Total logic elements : 325
+    Total combinational functions : 306
+    Dedicated logic registers : 125
+Total registers : 125
 Total pins : 37
 Total virtual pins : 0
 Total memory bits : 0

@@ -8,8 +8,9 @@ module movimenta_objetos (
 );
 
 	localparam object_size = 50;
-	localparam velocidade = 1;
+	localparam velocidade = 1; //max 7x
 	
+	reg [7:0] red_obj, green_obj, blue_obj;
 	reg [9:0] countX = 150;	
 	reg [8:0] countY = 150;
 
@@ -19,19 +20,27 @@ module movimenta_objetos (
 		 .velocidade  (velocidade),
 	    .vClock      (vClock)
 	);
+	
+// Instancia Obstaculos
+	desenha_obstaculo obstaculos (
+		 .VGA_clk   (clk),
+		 .xCol      (col),
+		 .yRow      (row),
+		 .obstaculo (obstaculo)
+	);
 		
-// Instanciar Quadrado
+// Instancia Quadrado
 	desenha_objeto quadrado (
 		 .VGA_clk  (clk),
 		 .tamanho  (object_size),
-		 .xCount   (col),
+		 .xCol     (col),
 		 .xPos     (countX),
-		 .yCount   (row),
+		 .yRow     (row),
 		 .yPos     (countY),
 		 .desenho  (desenho)
 	);
 	
-// Instanciar limites objeto
+// Instancia limites objeto
 	colide_objeto limites (
 		 .VGA_clk  		  (clk),
 		 .tamanho  		  (object_size),
@@ -42,7 +51,7 @@ module movimenta_objetos (
 		 .colisao_max_y  (max_y),
 		 .colisao_min_y  (min_y)
 	);
-
+	
 //	Movimenta objeto
 	always @(posedge vClock)		
 		begin
@@ -59,6 +68,11 @@ module movimenta_objetos (
 				red   <= 8'hff;
 				green <= 8'h0;
 				blue  <= 8'h0;				
+			end
+			else if(obstaculo) begin
+				red   <= 8'hff;
+				green <= 8'hff;
+				blue  <= 8'h0;	
 			end
 			else begin
 				red   <= 8'h0;

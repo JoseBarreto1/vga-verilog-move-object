@@ -3,19 +3,19 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'vgapll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -6.038
-TNS   : -28.271
+Slack : -6.140
+TNS   : -91.159
 
 Type  : Slow 1200mV 85C Model Setup 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'
-Slack : -4.031
-TNS   : -53.955
+Slack : -3.817
+TNS   : -55.571
 
 Type  : Slow 1200mV 85C Model Hold 'vgapll_inst|altpll_component|auto_generated|pll1|clk[0]'
 Slack : -0.225
 TNS   : -0.225
 
 Type  : Slow 1200mV 85C Model Hold 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'
-Slack : 0.656
+Slack : 0.464
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'
@@ -31,19 +31,19 @@ Slack : 19.708
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'vgapll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -5.200
-TNS   : -24.160
+Slack : -5.403
+TNS   : -79.437
 
 Type  : Slow 1200mV 0C Model Setup 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'
-Slack : -3.736
-TNS   : -50.758
+Slack : -3.629
+TNS   : -53.028
 
 Type  : Slow 1200mV 0C Model Hold 'vgapll_inst|altpll_component|auto_generated|pll1|clk[0]'
 Slack : -0.319
 TNS   : -0.319
 
 Type  : Slow 1200mV 0C Model Hold 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'
-Slack : 0.599
+Slack : 0.418
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'
@@ -59,19 +59,19 @@ Slack : 19.709
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'vgapll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -2.591
-TNS   : -11.476
+Slack : -2.639
+TNS   : -38.525
 
 Type  : Fast 1200mV 0C Model Setup 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'
-Slack : -1.707
-TNS   : -20.757
+Slack : -1.592
+TNS   : -21.254
 
 Type  : Fast 1200mV 0C Model Hold 'vgapll_inst|altpll_component|auto_generated|pll1|clk[0]'
 Slack : -0.138
 TNS   : -0.138
 
 Type  : Fast 1200mV 0C Model Hold 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'
-Slack : 0.300
+Slack : 0.210
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'

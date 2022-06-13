@@ -1,0 +1,21 @@
+module colide_max_x (
+	input VGA_clk,
+	input wire [6:0] tamanho,
+	input wire [9:0] xPos,
+	output reg colisao_max_x
+);
+
+// Obstaculos Max x
+	localparam obstaculo_01_x = 100;	
+	localparam obstaculo_02_x = 315;	
+	
+	always @(negedge VGA_clk)
+		begin
+			colisao_01 <= xPos > (obstaculo_01_x - tamanho);
+			colisao_01 <= xPos > (obstaculo_01_x - tamanho);
+		end
+		
+	assign colisao_max_x =  colisao_01 ||
+									colisao_02;
+
+endmodule

@@ -1,0 +1,86 @@
+module colide_max_y (
+	input VGA_clk,
+	input wire [6:0] tamanho,
+	input wire [9:0] xPos,
+	input wire [8:0] yPos,
+	output wire colisao_max_y
+);
+
+// maximo keyboard right
+	reg colisao_01, colisao_02, colisao_03, colisao_04, colisao_05, colisao_06, colisao_07, colisao_08, colisao_09, colisao_10;
+
+	localparam obstaculo_01_y = 100;
+	localparam obstaculo_01_ini_x = 100;
+	localparam obstaculo_01_fin_x = 350;
+
+	localparam obstaculo_02_y = 340;
+	localparam obstaculo_02_ini_x = 340;
+	localparam obstaculo_02_fin_x = 350;
+	
+	localparam obstaculo_03_y = 100;
+	localparam obstaculo_03_ini_x = 100;
+	localparam obstaculo_03_fin_x = 280;
+	
+	localparam obstaculo_04_y = 270;
+	localparam obstaculo_04_ini_x = 270;
+	localparam obstaculo_04_fin_x = 280;
+	
+	localparam obstaculo_05_y = 340;
+	localparam obstaculo_05_ini_x = 340;
+	localparam obstaculo_05_fin_x = 590;
+	
+	localparam obstaculo_06_y = 270;
+	localparam obstaculo_06_ini_x = 270;
+	localparam obstaculo_06_fin_x = 510;
+	
+	localparam obstaculo_07_y = 580;
+	localparam obstaculo_07_ini_x = 580;
+	localparam obstaculo_07_fin_x = 590;
+	
+	localparam obstaculo_08_y = 500;
+	localparam obstaculo_08_ini_x = 500;
+	localparam obstaculo_08_fin_x = 510;
+	
+	localparam obstaculo_09_y = 100;
+	localparam obstaculo_09_ini_x = 100;
+	localparam obstaculo_09_fin_x = 590;
+	
+	localparam obstaculo_10_y = 100;
+	localparam obstaculo_10_ini_x = 100;
+	localparam obstaculo_10_fin_x = 510;	
+	
+	always @(negedge VGA_clk)
+		begin
+			colisao_01 <= xPos > (obstaculo_01_x - tamanho) && ((yPos + tamanho) > obstaculo_01_ini_y && yPos < obstaculo_01_fin_y);
+			
+			colisao_02 <= xPos > (obstaculo_02_x - tamanho) && ((yPos + tamanho) > obstaculo_02_ini_y && yPos < obstaculo_02_fin_y);
+			
+			colisao_03 <= xPos > (obstaculo_03_x - tamanho) && ((yPos + tamanho) > obstaculo_03_ini_y && yPos < obstaculo_03_fin_y);
+			
+			colisao_04 <= xPos > (obstaculo_04_x - tamanho) && ((yPos + tamanho) > obstaculo_04_ini_y && yPos < obstaculo_04_fin_y);
+			
+			colisao_05 <= xPos > (obstaculo_05_x - tamanho) && ((yPos + tamanho) > obstaculo_05_ini_y && yPos < obstaculo_05_fin_y);
+			
+			colisao_06 <= xPos > (obstaculo_06_x - tamanho) && ((yPos + tamanho) > obstaculo_06_ini_y && yPos < obstaculo_06_fin_y);
+			
+			colisao_07 <= xPos > (obstaculo_07_x - tamanho) && ((yPos + tamanho) > obstaculo_07_ini_y && yPos < obstaculo_07_fin_y);
+			
+			colisao_08 <= xPos > (obstaculo_08_x - tamanho) && ((yPos + tamanho) > obstaculo_08_ini_y && yPos < obstaculo_08_fin_y);
+			
+			colisao_09 <= xPos > (obstaculo_09_x - tamanho) && ((yPos + tamanho) > obstaculo_09_ini_y && yPos < obstaculo_09_fin_y);
+			
+			colisao_10 <= xPos > (obstaculo_10_x - tamanho) && ((yPos + tamanho) > obstaculo_10_ini_y && yPos < obstaculo_10_fin_y);
+		end
+
+	assign colide_max_y = colisao_01 ||
+								  colisao_02 ||
+								  colisao_03 ||
+								  colisao_04 ||
+								  colisao_05 ||
+								  colisao_06 ||
+								  colisao_07 ||
+								  colisao_08 ||
+								  colisao_09 ||
+								  colisao_10;
+
+endmodule
