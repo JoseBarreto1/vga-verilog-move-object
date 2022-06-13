@@ -30,3 +30,7 @@ Programa em Verilog que cria simples animações em um monitor VGA (480x640)
 	- desenha_obstaculo
 	
 	- colide_objeto
+
+# Resultado esperado:
+
+![Image 2](imgs/img2.png)
