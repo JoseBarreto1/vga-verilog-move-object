@@ -7,12 +7,12 @@ module movimenta_objetos (
 	output reg [7:0] red, green, blue
 );
 
-	localparam object_size = 50;
+	localparam object_size = 30;
 	localparam velocidade = 1; //max 7x
 	
 	reg [7:0] red_obj, green_obj, blue_obj;
-	reg [9:0] countX = 150;	
-	reg [8:0] countY = 150;
+	reg [9:0] countX = 100;	
+	reg [8:0] countY = 20;
 
 // Velocidade objeto
 	velocidade_objeto speed (
@@ -55,10 +55,10 @@ module movimenta_objetos (
 //	Movimenta objeto
 	always @(posedge vClock)		
 		begin
-			if(!KEY[0] && !max_x) countX <= countX+2;
-			if(!KEY[1] && !min_x) countX <= countX-2;
-			if(!KEY[2] && !min_y) countY <= countY-2;
-			if(!KEY[3] && !max_y) countY <= countY+2;
+			if(!KEY[0] && !max_x) countX <= countX+1;
+			if(!KEY[1] && !min_x) countX <= countX-1;
+			if(!KEY[2] && !min_y) countY <= countY-1;
+			if(!KEY[3] && !max_y) countY <= countY+1;
 		end
 
 //	Pinta objeto caso exista 

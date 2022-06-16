@@ -34,3 +34,7 @@ Programa em Verilog que cria simples animações em um monitor VGA (480x640)
 # Resultado esperado:
 
 ![Image 2](imgs/img2.png)
+
+![Image 3](imgs/img3.png)
+
+![til](imgs/gif1.gif)

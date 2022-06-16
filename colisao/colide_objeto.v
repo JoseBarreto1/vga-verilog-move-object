@@ -53,9 +53,9 @@ module colide_objeto (
 	always @(negedge VGA_clk)
 		begin
 			colisao_max_x <= xPos > (monitor_max_x - tamanho) || max_x;	
-			colisao_min_x <= xPos < monitor_min_x;
-			colisao_max_y <= yPos > (monitor_max_y - tamanho);
-			colisao_min_y <= yPos < monitor_min_y;
+			colisao_min_x <= xPos < monitor_min_x || min_x;
+			colisao_max_y <= yPos > (monitor_max_y - tamanho) || max_y;
+			colisao_min_y <= yPos < monitor_min_y || min_y;
 		end
 
 endmodule

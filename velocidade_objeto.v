@@ -7,7 +7,7 @@ module velocidade_objeto (
 	
 	always @(posedge VGA_clk)
 		begin			
-			if(countClk == (100000 / velocidade)) begin
+			if(countClk == (80000 / velocidade)) begin
 				countClk <= 0;
 				vClock <= ~vClock;
 			end
