@@ -73,7 +73,7 @@ module colide_max_y (
 			colisao_10 <= (yPos > (obstaculo_10_ini_y - tamanho) && yPos < (obstaculo_10_fin_y - tamanho)) && ((xPos + tamanho) > obstaculo_10_ini_x && xPos < obstaculo_10_fin_x);			
 		end
 
-	assign colide_max_y =  colisao_01 ||
+	assign colisao_max_y =  colisao_01 ||
 								  colisao_02 ||
 								  colisao_03 ||
 								  colisao_04 ||

@@ -3,19 +3,19 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'vgapll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -6.321
-TNS   : -210.635
+Slack : -6.994
+TNS   : -297.925
 
 Type  : Slow 1200mV 85C Model Setup 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'
-Slack : -3.923
-TNS   : -57.828
+Slack : -4.061
+TNS   : -62.710
 
 Type  : Slow 1200mV 85C Model Hold 'vgapll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -0.202
-TNS   : -0.202
+Slack : -0.216
+TNS   : -0.216
 
 Type  : Slow 1200mV 85C Model Hold 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'
-Slack : 0.656
+Slack : 0.465
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'
@@ -27,23 +27,23 @@ Slack : 9.891
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'vgapll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 19.710
+Slack : 19.708
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'vgapll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -5.542
-TNS   : -183.899
+Slack : -6.230
+TNS   : -262.598
 
 Type  : Slow 1200mV 0C Model Setup 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'
-Slack : -3.719
-TNS   : -54.717
+Slack : -3.843
+TNS   : -59.266
 
 Type  : Slow 1200mV 0C Model Hold 'vgapll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -0.296
-TNS   : -0.296
+Slack : -0.311
+TNS   : -0.311
 
 Type  : Slow 1200mV 0C Model Hold 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'
-Slack : 0.599
+Slack : 0.419
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'
@@ -55,23 +55,23 @@ Slack : 9.887
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'vgapll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 19.711
+Slack : 19.710
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'vgapll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -2.716
-TNS   : -89.573
+Slack : -3.043
+TNS   : -127.908
 
 Type  : Fast 1200mV 0C Model Setup 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'
-Slack : -1.556
-TNS   : -21.939
+Slack : -1.702
+TNS   : -25.531
 
 Type  : Fast 1200mV 0C Model Hold 'vgapll_inst|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -0.124
-TNS   : -0.124
+Slack : -0.134
+TNS   : -0.134
 
 Type  : Fast 1200mV 0C Model Hold 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'
-Slack : 0.300
+Slack : 0.211
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'movimenta_objetos:movimenta|velocidade_objeto:speed|vClock'
